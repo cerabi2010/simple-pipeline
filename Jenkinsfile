@@ -19,7 +19,7 @@ node('maven') {
   }
   
   stage('Build Image') {
-    sh "oc start-build eap-app --from-file=target/ROOT.jar --follow"
+    sh "oc start-build eap-app --from-file=target/ROOT.war --follow"
   }
   
   stage('System Test') {
