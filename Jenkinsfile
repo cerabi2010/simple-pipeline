@@ -10,20 +10,20 @@ node('maven') {
   stage('Test') {
     parallel(
       "Cart Tests": {
-        sh "curl -s -X POST http://simple:8080/index.jsp"
+        sh "curl -s -X POST http://simple:8080/simple/index.jsp"
       },
       "Discount Tests": {
-        sh "curl -s -X POST http://simple:8080/failover.jsp"
+        sh "curl -s -X POST http://simple:8080/simple/failover.jsp"
       }
     )
   }
   
   stage('Build Image') {
-    sh "oc start-build simple --from-file=target/ROOT.war --follow"
+    sh "oc start-build simple --from-file=target/simple.war --follow"
   }
   
   stage('System Test') {
     sh " sleep 30"
-    sh "curl -s http://simple:8080/index.jsp"
+    sh "curl -s http://simple:8080/simple/index.jsp"
   }
 }
