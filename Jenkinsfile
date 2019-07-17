@@ -20,7 +20,7 @@ node('maven') {
   }
   */
   stage('Build Image') {
-    sh "oc start-build simple --from-file=target/simple.war --follow"
+    sh "oc start-build simple --from-file=target/simple.war --follow=true"
   }
   
   stage('System Test') {
