@@ -7,6 +7,7 @@ node('maven') {
     sh "ls  *"
   }
   
+  /*
   stage('Test') {
     parallel(
       "Cart Tests": {
@@ -17,7 +18,7 @@ node('maven') {
       }
     )
   }
-  
+  */
   stage('Build Image') {
     sh "oc start-build simple --from-file=target/simple.war --follow"
   }
