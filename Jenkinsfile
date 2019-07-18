@@ -20,11 +20,11 @@ node('maven') {
   }
   */
   stage('Build Image') {
-    sh "oc start-build eap-app --from-file=target/simple.war --follow=true"
+    sh "oc start-build simple --from-file=target/simple.war --follow=true"
   }
   
   stage('System Test') {
     sh " sleep 30"
-    sh "curl -s http://eap-app:8080/simple/index.jsp"
+    sh "curl -s http://simple:8080/simple/index.jsp"
   }
 }
