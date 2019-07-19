@@ -20,7 +20,10 @@ node('maven') {
   }
   
   stage('Build Image') {
-    sh "oc start-build simple --git-repository=https://github.com/Heesun-Yang/jeus8-simple --follow=true"
+    sh "git clone https://github.com/Heesun-Yang/jeus8-simple"
+    sh "echo 'Current:'; pwd "
+    sh "cp -f target/simple.war jeus8-simple/"
+    sh "oc start-build simple --from-dir=jeus8-simple --follow=true"
   }
   
   stage('System Test') {
