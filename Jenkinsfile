@@ -23,7 +23,7 @@ node('maven') {
     sh "git clone https://github.com/Heesun-Yang/jeus8-simple"
     sh "echo 'Current:'; pwd "
     sh "cp -f target/simple.war jeus8-simple/"
-    sh "oc start-build simple --from-dir=jeus8-simple --follow=true"
+    sh "oc start-build jws-app --from-dir=jeus8-simple --follow=true"
   }
   
   stage('System Test') {
