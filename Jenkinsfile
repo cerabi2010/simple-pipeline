@@ -1,4 +1,4 @@
-node('node') {
+node('maven') {
   stage('Build') {
     sh " oc whoami"
     sh " pwd ; id;"
