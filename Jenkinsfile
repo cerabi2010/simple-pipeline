@@ -1,10 +1,10 @@
-node('maven') {
+node('node') {
   stage('Build') {
     sh " oc whoami"
     sh " pwd ; id;"
 //    git url: "https://github.com/Heesun-Yang/simple-pipeline.git"
-    sh "mvn package"
-    sh "ls  *"
+//    sh "mvn package"
+//    sh "ls  *"
   }
   
   
